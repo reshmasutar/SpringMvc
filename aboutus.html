@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+      <h1>This is Store Revenue Table</h1>
+      <a href="addproduct"><button>ADD PRODUCT</button></a>
+        <table border="2">
+            <tr>
+                <th>ITEM</th>
+                <th>COST</th>
+                <th>REVENUE</th>
+                <th>PROFIT</th>
+            </tr>
+            <tr th:each="product:${records}" th:style="${product.revenue-product.cost>=0 ?'background-color:green':'background-color:red'}">
+                <td th:text="${product.item}"></td>
+                <td th:text="${product.cost}"></td>
+                <td th:text="${product.revenue}"></td>
+                <td th:text="${product.revenue-product.cost}"></td>
+
+
+
+            </tr>
+        </table>
+</body>
+</html>
